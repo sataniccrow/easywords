@@ -1,0 +1,29 @@
+{
+	"name" : "easyWords",
+	"version" : "0.9",
+	"manifest_version" : 2,
+	"description" : "Translate it, faster and easier",
+	"browser_action" : {
+		"default_icon" : "grapx\/ghost.png",
+		"default_popup" : "html\/main.html"
+	},
+  "icons" : {
+    "128": "grapx\/ghost.png"
+    },
+  "content_scripts":[
+    {
+    "matches": ["http://*/*","https://*/*"],
+    "js" : [
+      "js\/jquery-1.8.3.min.js",
+      "js\/json2.js",
+      "js\/api.js",
+      "js\/trigger.js",
+      "js\/autofocusHack.js"
+      ]
+    }
+  ],
+  "permissions" : [
+    "storage",
+    "<all_urls>"
+  ]
+}

@@ -1,0 +1,266 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<head>
+<title>easyWords</title>
+<META NAME='ROBOTS' CONTENT='NOINDEX'>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<style type="text/css">
+/*html,body {font-family: arial, verdana, sans-serif; font-size: 12px;margin-top:0px; margin-bottom:0px; height:100%;}*/
+html,body {font-family: arial, verdana, sans-serif; font-size: 12px; margin:0px; height:100%;}
+table.Rtbl {border: solid 1px white; line-height:16px; border-collapse:collapse;}
+div#Otbl {padding: 0px;}
+span.EsIPA { font-family:"Lucida Sans Unicode", "Arial Unicode MS","Lucida Grande"; color: blue; font-size: 10pt; }
+.small1 {font-size: x-small}
+tr.even	{background-color: #e8e8ff;vertical-align: top}
+tr.odd	{background-color: white;vertical-align: top}
+tr.evenEx {background-color: #e8e8ff;vertical-align: top}
+tr.oddEx  {background-color: white;vertical-align: top}
+td.Head	{padding-left:0px; padding-right: 10px; font-weight: bold; font-size:13px; text-decoration:underline; line-height:30px}
+
+#si {width:90%;max-width:180px;}
+#dictselect {font-size:11px;width:130px;}
+
+#Rtbl2		{position:absolute; right: 0px; top:278px; width:400px; border: solid 1px black;}
+table.Rtbl2	{line-height:16px; border-collapse:collapse;}
+/* .FrW2		{padding-left:5px;font-weight: bold;}
+*/
+.FrW2		{padding-left:1px;font-weight: bold;}
+.To2		{text-indent: 50px;font-style: italic}
+/* .FrCN2, td.ToW22, td.POS2	{padding-left:5px;}
+*/
+.FrCN2, td.ToW22, td.POS2	{padding-left:1px;font-size:11px;}
+.ToCN2	{padding-left:20px; font-style: italic}
+.ToW2	{padding-left:5px; padding-right: 5px}
+.Ex2, td.ToEx2	{padding-left: 5px; padding-right:5px; color:SlateGray;}
+.FrEx2	{padding-left: 5px; padding-right:5px; color:#483D8B;}
+.ToNt2	{padding-left: 5px; padding-right:5px; color:red;}
+span.POS2	{padding-left:2px;}
+.POS2		{color:#524BD3; font-style: italic;}
+tr.evenExHide, tr.oddExHide {display:none}
+
+
+
+/*
+.FrW2		{padding-left:5px;font-weight: bold;}
+.FrCN2 {padding-left:15px;}
+
+#si {width:90%;max-width:180px;}
+#dictselect {font-size:11px;width:130px;}
+
+
+
+#Rtbl2		{position:absolute; right: 0px; top:278px; width:400px; border: solid 1px black;}
+table.Rtbl2	{border: solid 1px white; line-height:16px; border-collapse:collapse;}
+td.FrW2		{padding-left:5px;font-weight: bold;}
+td.To2		{text-indent: 50px;font-style: italic}
+td.FrCN2, td.ToW22, td.POS2	{padding-left:5px;}
+td.ToCN2	{padding-left:20px; font-style: italic}
+td.ToW2	{padding-left:5px; padding-right: 5px}
+td.Ex2, td.ToEx2	{padding-left: 5px; padding-right:5px; color:SlateGray;}
+td.FrEx2	{padding-left: 5px; padding-right:5px; color:#483D8B;}
+td.ToNt2	{padding-left: 5px; padding-right:5px; color:red;}
+span.POS2	{padding-left:2px;}
+.POS2		{color:#524BD3; font-style: italic;}
+tr.evenExHide, tr.oddExHide {display:none}
+*/
+
+
+</style>
+<script src="..\js\jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="../js/json2.js" type="text/javascript"></script>
+<script src="..\js\api.js" type="text/javascript"></script>
+<script src="..\js\storageManager.js" type="text/javascript"></script>
+<script src="..\js\test.js" type="text/javascript"></script>
+</head>
+<body>
+<div style="max-width:300px">
+<div style="font-weight:bold;font-size:15px;border-bottom: solid black 1px; border-top: solid black 1px; min-height:20px; background-color:#5E58C7;color:#FFFFFF; text-align:center">easyWords &#169; WordReference.com</div>
+
+<div style="border-bottom: solid black 1px; background-color:#918CE3; padding:2px; text-align:center;">
+
+<form method="GET" action="http://api.wordreference.com" class=lookup name="sbox" target="_self">
+	<input type="text" name="w" id="inputWord" maxlength="30" tabindex="1" accesskey="s" title="enter the word" value=""> 
+	<select size="1" name="dict" tabindex="2" id="dictselect">
+
+    <option value="enit">English-Italian</option>
+    <option value="iten">Italian-English</option>
+    <option value="enfr">English-French</option>
+    <option value="enpt">English-Portuguese</option>
+    <option value="enpl">English-Polish</option>
+    <option value="enro">English-Romanian</option>
+    <option value="engr">English-Greek</option>
+    <option value="enzh">English-Chinese</option>
+    <option value="enja">English-Japanese</option>
+    <option value="enko">English-Korean</option>
+    <option value="encz">English-Czech</option>
+    <option value="entr">English-Turkish</option>
+    <option value="enar">English-Arabic</option>
+
+	</select>
+  <input type="submit" value="Go" id="translate" name="B" title="Look Up" tabindex="3" style="padding:0px">
+</form>
+
+</div>
+
+<div
+<div>
+  
+  <table class='WRD' onclick='redirectWR(event,"WRenit")'>
+      <tr class='wrtopsection'>
+      
+        <td colspan='3' title='Principal Translations'><strong>Principal Translations/Traduzioni principali</strong></td>
+      </tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (body part)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (applause)</span></td><td class='ToWrd' >applauso <em class='POS2'>nm</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (control)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (aid)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (cards: those dealt)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (deliver, pass)</span></td><td class='ToWrd' >passare<a title="conjugate passare" class='conjugate' href="/conj/ITverbs.aspx?v=passare">?</a>, dare<a title="conjugate dare" class='conjugate' href="/conj/ITverbs.aspx?v=dare">?</a>, porgere<a title="conjugate porgere" class='conjugate' href="/conj/ITverbs.aspx?v=porgere">?</a> <em class='POS2'>vtr</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (used by the hand)</span></td><td class='ToWrd' >manuale <em class='POS2'>agg</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (manual)</span></td><td class='ToWrd' >a mano <em class='POS2'>avv</em></td></tr>
+      <tr class='odd'><td class='To2'></td><td class='ToWrd' >manuale <em class='POS2'>agg</em></td></tr>
+      
+      <tr class='odd'><td colspan='3' class='wrtopsection'>&nbsp;</td></tr><tr class='wrtopsection'><td colspan='3' title='Additional Translations' class='additional'><strong>Additional Translations</strong></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (made by hand)</span></td><td class='ToWrd' >manuale, artigianale <em class='POS2'>agg</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (clock, gauge)</span></td><td class='ToWrd' >lancetta <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (direction, side)</span></td><td class='ToWrd' >lato <em class='POS2'>nm</em></td></tr>
+      <tr class='even'><td class='To2'></td><td class='ToWrd' >parte <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td class='To2'>strada</td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (handwriting)</span></td><td class='ToWrd' >grafia, scrittura, calligrafia <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td class='To2'>meno usato</td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (labourer) <i class='To2' >in questo caso sempre al plurale</i></span></td><td class='ToWrd' >braccia <em class='POS2'>nm plur</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (skill)</span></td><td class='ToWrd' >abilitଠcapacit࠼em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (crewman)</span></td><td class='ToWrd' >marinaio, uomo, mozzo <em class='POS2'>nm</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (bargaining position)</span></td><td class='ToWrd' >posizione <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (agency)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> <i class='Fr2'>old fashioned</i> (signature)</span></td><td class='ToWrd' >firma <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (pledge, word)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (horses: measure of height)</span></td><td class='ToWrd' >spanna <em class='POS2'>nf</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (cards: a turn)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td><span class='FrW2'>hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (skill, touch)</span></td><td class='ToWrd' >mano <em class='POS2'>nf</em></td></tr>
+      <tr class='odd'><td class='To2'></td><td class='ToWrd' >tocco <em class='POS2'>nm</em></td></tr>
+      <tr class='even'><td><span class='FrW2'>hand</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (guide, help)</span></td><td class='ToWrd' >aiutare<a title="conjugate aiutare" class='conjugate' href="/conj/ITverbs.aspx?v=aiutare">?</a> <em class='POS2'>vtr</em></td></tr>
+      <tr class='even'><td class='To2'></td><td class='ToWrd' >accompagnare<a title="conjugate accompagnare" class='conjugate' href="/conj/ITverbs.aspx?v=accompagnare">?</a> <em class='POS2'>vtr</em></td></tr>
+    </table>
+
+
+<table class='WRreporterror'>
+<tr class='odd more'><td>&nbsp;</td>
+<td style='text-align:right;'><a target='WRsug' title='Report an error / suggest an improvement' href="/english/suggestions.aspx?w=hand&amp;dict=enit">Segnala un errore</a></td></tr></table>
+<div>
+
+<table class='WRD' onclick='redirectWR(event,"WRenit")'><tr class='wrtopsection'><td colspan='3' title='Compound Forms' id='compounds'><strong>Compound Forms/Forme composte</strong></td></tr>
+<tr class='even'><td><span class='FrW2'>a bird in the hand is worth two in the bush</span> <span class='POS2'>expr</span><br><span class='FrCN2'> <i class='Fr2'>proverb</i> (sth that you already have is better than the promise of sth better)</span></td><td class='ToWrd' >meglio un uovo oggi che una gallina domani <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>a hand at</span> <span class='POS2'></span></td><td class='ToWrd' >una mano a <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>an old hand at</span> <span class='POS2'>n</span><br><span class='FrCN2'> <i class='Fr2'>informal</i> (experienced in: an activity)</span></td><td class='ToWrd' >del mestiere <em class='POS2'></em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >esperto, veterano <em class='POS2'>agg</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>at first hand</span> <span class='POS2'></span><br><span class='FrCN2'> <i class='To2' >in prima persona</i></span></td><td class='ToWrd' >direttamente <em class='POS2'>adv</em></td></tr>
+<tr class='even'><td><span class='FrW2'>at hand</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (nearby, conveniently close)</span></td><td class='ToWrd' >a portata di mano <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>at second hand</span> <span class='POS2'></span></td><td class='ToWrd' >per sentito dire <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>at the hand of</span> <span class='POS2'></span></td><td class='ToWrd' >per mano di <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>back-hand</span> <span class='POS2'></span></td><td class='ToWrd' >di rovescio <em class='POS2'>adv</em></td></tr>
+<tr class='even'><td><span class='FrW2'>bad hand</span> <span class='POS2'></span></td><td class='ToWrd' >brutta calligrafia <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>be on hand</span> <span class='POS2'></span></td><td class='ToWrd' >essere a disposizione <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>big hand</span> <span class='POS2'></span></td><td class='ToWrd' >grande aiuto <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>bird in hand</span> <span class='POS2'></span></td><td class='ToWrd' >uccello sulla mano <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>bird in the hand</span> <span class='POS2'></span></td><td class='ToWrd' >qualcosa di certo <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>bite the hand that feeds you</span> <span class='POS2'></span></td><td class='ToWrd' >sputare sul piatto dove si mangia <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>black hand</span> <span class='POS2'></span></td><td class='ToWrd' >organizzazione criminale segreta americana <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>bound hand and foot</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (with hands and feet tied)</span></td><td class='ToWrd' >con mani e piedi legati <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>bound hand and foot</span> <span class='POS2'>adj</span><br><span class='FrCN2'> <i class='Fr2'>figurative</i> (inescapably obligated)</span></td><td class='ToWrd' >avere le mani legate <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>business at hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (urgent matter for discussion)</span></td><td class='ToWrd' >argomento in questione <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>by hand</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (manually, not by machine)</span></td><td class='ToWrd' >a mano <em class='POS2'>avv</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>cap in hand</span> <span class='POS2'></span></td><td class='ToWrd' >con umilt࠼em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>cash in hand</span> <span class='POS2'></span></td><td class='ToWrd' >denaro alla mano <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>close at hand</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (nearby)</span></td><td class='ToWrd' >a portata di mano <em class='POS2'>agg</em></td></tr>
+<tr class='even'><td><span class='FrW2'>close at hand</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (imminent)</span></td><td class='ToWrd' >vicino, imminente <em class='POS2'>agg</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>close at hand</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (handy, at a convenient distance)</span></td><td class='ToWrd' >a portata di mano <em class='POS2'>agg</em></td></tr>
+<tr class='even'><td><span class='FrW2'>dead hand</span> <span class='POS2'></span></td><td class='ToWrd' >persona civilmente morta <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>deck hand</span> <span class='POS2'></span></td><td class='ToWrd' >mozzo <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>dismiss out of hand</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (disregard completely)</span></td><td class='ToWrd' >respingere sommariamente <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>farm hand</span> <span class='POS2'></span></td><td class='ToWrd' >bracciante agricolo <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>firm hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> <i class='Fr2'>figurative</i> (strictness, discipline) <i class='To2' >figurato: severit༯i></span></td><td class='ToWrd' >pugno duro <em class='POS2'>nm</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>first hand</span> <span class='POS2'></span></td><td class='ToWrd' >di prima mano; diretto <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>first-hand</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (direct)</span></td><td class='ToWrd' >di prima mano <em class='POS2'>agg</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>first-hand</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (directly)</span></td><td class='ToWrd' >di prima mano <em class='POS2'>avv</em></td></tr>
+<tr class='even'><td><span class='FrW2'>free hand</span> <span class='POS2'>n</span><br><span class='FrCN2'> (carte blanche, unrestricted freedom) <i class='To2' >figurato</i></span></td><td class='ToWrd' >carta bianca <em class='POS2'>nf</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>free-hand</span> <span class='POS2'></span></td><td class='ToWrd' >a mano libera <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>from hand to hand</span> <span class='POS2'></span></td><td class='ToWrd' >di mano in mano <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>from hand to mouth</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (in a state of poverty) <i class='To2' >in povert༯i></span></td><td class='ToWrd' >alla giornata <em class='POS2'>avv</em></td></tr>
+<tr class='even'><td><span class='FrW2'>full hand</span> <span class='POS2'></span></td><td class='ToWrd' >full (poker) <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>full-hand</span> <span class='POS2'></span></td><td class='ToWrd' >full (nel poker) <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>gain the upper hand</span> <span class='POS2'>vi</span><br><span class='FrCN2'> (attain an advantage: over sb)</span></td><td class='ToWrd' >avere la meglio su <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>get out of hand</span> <span class='POS2'>v</span><br><span class='FrCN2'> (become uncontrolled) <i class='To2' >figurato</i></span></td><td class='ToWrd' >sfuggire di mano <em class='POS2'>vi</em></td></tr>
+<tr class='even'><td><span class='FrW2'>get the upper hand</span> <span class='POS2'>v</span><br><span class='FrCN2'> (gain an advantage)</span></td><td class='ToWrd' >prendere il vantaggio <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>give a hand</span> <span class='POS2'></span><br><span class='FrCN2'> <i class='To2' >dare una mano</i></span></td><td class='ToWrd' >aiutare <em class='POS2'>v</em></td></tr>
+<tr class='even'><td><span class='FrW2'>give a hand</span> <span class='POS2'></span></td><td class='ToWrd' >dare una mano <em class='POS2'>v</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>give a hand</span> <span class='POS2'></span></td><td class='ToWrd' >dare una mano <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>give a helping hand</span> <span class='POS2'>vi</span><br><span class='FrCN2'> (assist, help)</span></td><td class='ToWrd' >dare una mano <em class='POS2'>vtr</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >aiutare<a title="conjugate aiutare" class='conjugate' href="/conj/ITverbs.aspx?v=aiutare">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>give sb a hand</span> <span class='POS2'>vi</span><br><span class='FrCN2'> (help sb)</span></td><td class='ToWrd' >dare una mano <em class='POS2'>vtr</em></td></tr>
+<tr class='even'><td><span class='FrW2'>go hand in hand</span> <span class='POS2'>vi</span><br><span class='FrCN2'> <i class='Fr2'>figurative</i> (belong together)</span></td><td class='ToWrd' >andare mano nella mano <em class='POS2'>vi</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >andare di pari passo  <em class='POS2'>vi</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >abbinarsi <em class='POS2'>v rif</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>go hand in hand with</span> <span class='POS2'></span></td><td class='ToWrd' >andare mano nella mano con <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>go hand in hand with sth</span> <span class='POS2'></span></td><td class='ToWrd' >andare di pari passo con qcs <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>go hand in hand with sth</span> <span class='POS2'></span></td><td class='ToWrd' >andare per mano <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>good hand</span> <span class='POS2'></span></td><td class='ToWrd' >mano abile <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand and foot</span> <span class='POS2'></span></td><td class='ToWrd' >gioco di carte simile alla canasta <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand and glove</span> <span class='POS2'></span></td><td class='ToWrd' >in collusione con; in combutta con; culo e camicia <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand back</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (return, give back)</span></td><td class='ToWrd' >restituire<a title="conjugate restituire" class='conjugate' href="/conj/ITverbs.aspx?v=restituire">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand basin</span> <span class='POS2'>n</span><br><span class='FrCN2'> (sink for washing hands)</span></td><td class='ToWrd' >lavandino, lavabo <em class='POS2'>nm</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand blender</span> <span class='POS2'>n</span><br><span class='FrCN2'> (handheld food mixer)</span></td><td class='ToWrd' >frullatore a immersione <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand clapping</span> <span class='POS2'></span></td><td class='ToWrd' >battimani <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand cleaner</span> <span class='POS2'></span></td><td class='ToWrd' >fazzoletto <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand cream</span> <span class='POS2'></span></td><td class='ToWrd' >crema per le mani <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand down</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (pass on to a successor)</span></td><td class='ToWrd' >lasciare<a title="conjugate lasciare" class='conjugate' href="/conj/ITverbs.aspx?v=lasciare">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand drill</span> <span class='POS2'></span></td><td class='ToWrd' >trapano a mano <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand embroidery</span> <span class='POS2'></span></td><td class='ToWrd' >ricamo a mano <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand engraving</span> <span class='POS2'>n</span><br><span class='FrCN2'> (cutting an image for printing with hand tools)</span></td><td class='ToWrd' >calcografia <em class='POS2'>nf</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand engraving</span> <span class='POS2'>n</span><br><span class='FrCN2'> (decorative engraving done by hand)</span></td><td class='ToWrd' >incisione a mano <em class='POS2'>nf</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand formed, hand-formed</span> <span class='POS2'>adj</span><br><span class='FrCN2'> (shaped by hand)</span></td><td class='ToWrd' >formato a mano <em class='POS2'>agg</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand game</span> <span class='POS2'>n</span><br><span class='FrCN2'> (play activity using only the hands)</span></td><td class='ToWrd' >gioco di mano <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand gear</span> <span class='POS2'></span></td><td class='ToWrd' >strumento meccanico che pu򠥳sere anche azionato manualmente <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand gliding</span> <span class='POS2'>n</span><br><span class='FrCN2'> (alternative term for hang gliding) <i class='To2' >volo col deltaplano</i></span></td><td class='ToWrd' >deltaplano <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand grenade</span> <span class='POS2'></span></td><td class='ToWrd' >granata a mano <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand grenade</span> <span class='POS2'></span></td><td class='ToWrd' >granata a mano <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand grinder</span> <span class='POS2'>n</span><br><span class='FrCN2'> (handheld tool for crushing sth)</span></td><td class='ToWrd' >macinino <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >smerigliatrice angolare <em class='POS2'>nf</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand guard</span> <span class='POS2'></span></td><td class='ToWrd' >guardamano (di spada) <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand in</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (submit)</span></td><td class='ToWrd' >presentare<a title="conjugate presentare" class='conjugate' href="/conj/ITverbs.aspx?v=presentare">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand in</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (turn in, surrender)</span></td><td class='ToWrd' >consegnare<a title="conjugate consegnare" class='conjugate' href="/conj/ITverbs.aspx?v=consegnare">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand in glove</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (together, in partnership)</span></td><td class='ToWrd' >in stretta collaborazione <em class='POS2'>avv</em></td></tr>
+<tr class='even'><td class='To2'>volgare</td><td class='ToWrd' >culo e camicia <em class='POS2'>agg</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand in hand</span> <span class='POS2'>adv</span><br><span class='FrCN2'> (holding hands) <i class='To2' >tenersi la mano</i></span></td><td class='ToWrd' >mano nella mano <em class='POS2'>avv</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand in hand</span> <span class='POS2'>adv</span><br><span class='FrCN2'> <i class='Fr2'>informal</i> (working together)</span></td><td class='ToWrd' >a quattro mani <em class='POS2'>avv</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >di pari passo <em class='POS2'>avv</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand it to</span> <span class='POS2'></span></td><td class='ToWrd' >lasciar fare a qcn. pi񠥳perto <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand it to sb</span> <span class='POS2'></span><br><span class='FrCN2'> <i class='To2' >anche iron.</i></span></td><td class='ToWrd' >riconoscere i meriti di qc, complimentarsi con qc <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand job</span> <span class='POS2'>n</span><br><span class='FrCN2'> <i class='Fr2'>slang</i> (masturbation of the penis) <i class='To2' >volgare: masturbazione maschile</i></span></td><td class='ToWrd' >sega, pippa, pugnetta <em class='POS2'>nf</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand labor</span> <span class='POS2'></span><br><span class='FrCN2'> <i class='Fr2'>US</i></span></td><td class='ToWrd' >lavoro manuale <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand lens</span> <span class='POS2'></span></td><td class='ToWrd' >lente di ingrandimento <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand line</span> <span class='POS2'></span></td><td class='ToWrd' >lenza a mano <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand list</span> <span class='POS2'></span></td><td class='ToWrd' >lista; catalogo <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand lotion</span> <span class='POS2'></span></td><td class='ToWrd' >lozione per le mani <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand luggage</span> <span class='POS2'>n</span><br><span class='FrCN2'> (carry-on baggage)</span></td><td class='ToWrd' >bagaglio a mano <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand me down</span> <span class='POS2'>n</span><br><span class='FrCN2'> (sth used passed on to another) <i class='To2' >di seconda mano</i></span></td><td class='ToWrd' >vecchio, dismesso <em class='POS2'>agg</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >di seconda mano <em class='POS2'>agg</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand mirror</span> <span class='POS2'></span></td><td class='ToWrd' >specchietto <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand mixer</span> <span class='POS2'>n</span><br><span class='FrCN2'> (cookery: handheld electric tool for mixing)</span></td><td class='ToWrd' >sbattitore elettrico <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >frullino elettrico <em class='POS2'>nm</em></td></tr>
+<tr class='even'><td class='To2'></td><td class='ToWrd' >mixer <em class='POS2'>nm</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand of death</span> <span class='POS2'></span></td><td class='ToWrd' >mano della morte <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand of friendship</span> <span class='POS2'></span></td><td class='ToWrd' >mano amichevole <em class='POS2'></em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand off</span> <span class='POS2'></span></td><td class='ToWrd' >passaggio di palla a un compagno nel rugby <em class='POS2'></em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand on</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (pass on, transmit)</span></td><td class='ToWrd' >passare<a title="conjugate passare" class='conjugate' href="/conj/ITverbs.aspx?v=passare">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand out, handout</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (distribute)</span></td><td class='ToWrd' >distribuire<a title="conjugate distribuire" class='conjugate' href="/conj/ITverbs.aspx?v=distribuire">?</a>, dispensare<a title="conjugate dispensare" class='conjugate' href="/conj/ITverbs.aspx?v=dispensare">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='even'><td><span class='FrW2'>hand over</span> <span class='POS2'>vtr</span><br><span class='FrCN2'> (surrender, give)</span></td><td class='ToWrd' >trasmettere<a title="conjugate trasmettere" class='conjugate' href="/conj/ITverbs.aspx?v=trasmettere">?</a>, devolvere<a title="conjugate devolvere" class='conjugate' href="/conj/ITverbs.aspx?v=devolvere">?</a> <em class='POS2'>vtr</em></td></tr>
+<tr class='odd'><td><span class='FrW2'>hand over fist</span> <span class='POS2'>adv</span><br><span class='FrCN2'> <i class='Fr2'>informal</i> (rapidly, in great amounts)</span></td><td class='ToWrd' >a piene mani <em class='POS2'>avv</em></td></tr>
+
+</table>
+
+</div>
+
+</body>
+</html>

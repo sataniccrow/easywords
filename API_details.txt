@@ -1,0 +1,19 @@
+API key: PERSONAL_CODE
+
+API json: 
+translation: http://api.wordreference.com/PERSONAL_CODE/json/enit/hand
+thesaurus: http://api.wordreference.com/PERSONAL_CODE/json/thesaurus/hand
+
+API html:
+translation: http://api.wordreference.com/PERSONAL_CODE/enit/hand
+thesaurus: http://api.wordreference.com/PERSONAL_CODE/thesaurus/hand
+
+
+The category blocks that the API returns can be any of the following:
+
+PrincipalTranslations - the main entries found for the searched term.
+AdditionalTranslations - other entries for the term aside from the principal translations.
+Entries - entries when they are not divided between principal and additional translations.
+OtherSideEntires - for some dictionaries, we do a 'reverse dictionary' in that we return entries from the opposite side (e.g searching Czech to English will search entries on the English to Czech dictionary).
+Compounds - compound terms or phrases that include the searched term. These will only show up under the "original" object, not under any of the "term#" objects.
+The term0, term1, term2, etc. objects can contain the first four category-block types, while the original object type will only contain a Compounds category-block.
