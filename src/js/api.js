@@ -5,55 +5,93 @@ var sataniccrowNS = {
     },
     
     getOwnerApiKey:function(){
-      //change PERSONAL_CODE to your api_key code
-      var ownerApiKey = "PERSONAL_CODE";
+      var ownerApiKey = "aebcb";
       return ownerApiKey;
     },
   
   translateIt: function(word,lang){
     
     var ownerApiKey = sataniccrowNS.getOwnerApiKey();
-    
-    var ptArray = []
+    var isResult = 0;
+    var ptArray = [];
   
+    // $.ajax({
+    //   type: "GET",
+    //   url: "http://api.wordreference.com/"+ ownerApiKey+"/json/"+lang +"/"+word,
+    //   contentType: "application/json",
+    //   dataType: "json",
+    //   success: onSuccess,
+    //   error: onError
+    // });
+
     $.ajax({
       type: "GET",
       url: "http://api.wordreference.com/"+ ownerApiKey+"/json/"+lang +"/"+word,
       contentType: "application/json",
-      dataType: "json",
-      success: onSuccess,
-      error: onError
-    }); 
+      success: parseJsonImpl
+    });
     
+    function parseJsonImpl(data, status){
+      try{
+        
+        var parsedJson = $.parseJSON(correctJson(data));
+        onSuccess(parsedJson,"my parsedJson");
+      }catch(err){
+        alert('error: '+ err);
+      }
+    }
+
     function onSuccess(data, status){
       var sections = sataniccrowNS.getSections();
       
       for(var section in sections){
-      ptArray = []
-      
+      ptArray = [];
+
         sataniccrowNS.recursiveGetProp(data, sections[section], function(obj) {
           for (prop in obj) {
               if (obj.hasOwnProperty(prop)) {
-                  ptArray.push(obj[prop])
+                  ptArray.push(obj[prop]);
               }
           }
         });
         
+        isResult+=(ptArray.length > 0)?1:0;
+        
         sataniccrowNS.createHtmlNode(ptArray, sections[section])
-      }      
+      }
+      
+      if(isResult == 0){
+        var clone = '';
+        clone = $('.error_m').clone(false);
+        clone.find('.error_message').text("No translation available for the word " + word);
+        
+        clone.removeClass('hidden');
+      }else{
+        
+      }
     }
 
-    function onError(jqXHR, textStatus, errorThrown){
-      // alert("noooo")
-    }  
+    function correctJson(data){
+      var regex_removeBackslash = /\\'/g;
+      var regex_removeConcat    = /"\s*\+\s*"/g;
+
+      data = data.replace(regex_removeBackslash,"'");
+      data = data.replace(regex_removeConcat,"");
+      
+      return data;
+    }
+
+    // function onError(jqXHR, textStatus, errorThrown){
+    //   alert('error: '+ errorThrown);
+    // }
   },
 
   createHtmlNode:function (array,section){
     // console.debug(section + ": length =>" + array.length)
    
     for(var i =0; i<array.length; i++){
-       var clone = ''
-       var result = 0
+       var clone = '';
+       var result = 0;
        
        if(i%2 == 0){
           var clone = $('.even_m').clone(false)
