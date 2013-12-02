@@ -16,13 +16,13 @@ $(document).ready(function() {
   $('#translate').click(function(){
     // $("#overlay").fadeIn();
     
-    var inputWord = $("#inputWord").val()
-    var lang = $("#dictselect").val()
+    var inputWord = $("#inputWord").val();
+    var lang = $("#dictselect").val();
         
-    sataniccrowNS.cleanHtmlNodes()
+    sataniccrowNS.cleanHtmlNodes();
     
-    if(inputWord != "" && lang != ""){
-      sataniccrowNS.translateIt(inputWord,lang)
+    if(inputWord !== "" && lang !== ""){
+      sataniccrowNS.translateIt(inputWord,lang);
     }
-  })
-})
+  }); 
+});

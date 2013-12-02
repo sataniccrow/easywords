@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
 <title>easyWords</title>
@@ -13,15 +12,17 @@ div#Otbl {padding: 0px;}
 span.EsIPA { font-family:"Lucida Sans Unicode", "Arial Unicode MS","Lucida Grande"; color: blue; font-size: 10pt; }
 .small1 {font-size: x-small}
 .hidden {display: none;}
-tr.even	{background-color: #e8e8ff;vertical-align: top}
-tr.odd	{background-color: white;vertical-align: top}
-tr.even_m	{background-color: #e8e8ff;vertical-align: top}
-tr.odd_m	{background-color: white;vertical-align: top}
-td.Head	{padding-left:0px; padding-right: 10px; font-weight: bold; font-size:13px; text-decoration:underline; line-height:30px}
+.errorTitle{background-color: white;font-weight: bold}
+.errorDescription{background-color: white;font-style: italic}
+tr.even {background-color: #e8e8ff;vertical-align: top}
+tr.odd  {background-color: white;vertical-align: top}
+tr.even_m {background-color: #e8e8ff;vertical-align: top}
+tr.odd_m  {background-color: white;vertical-align: top}
+td.Head {padding-left:0px; padding-right: 10px; font-weight: bold; font-size:13px; text-decoration:underline; line-height:30px}
 
 #si {width:90%;max-width:180px;}
 #dictselect {font-size:11px;width:130px;}
-#Rtbl2		{position:absolute; right: 0px; top:278px; width:400px; border: solid 1px black;}
+#Rtbl2    {position:absolute; right: 0px; top:278px; width:400px; border: solid 1px black;}
 
 #overlay { 
   display:none; 
@@ -31,29 +32,29 @@ td.Head	{padding-left:0px; padding-right: 10px; font-weight: bold; font-size:13p
   position:absolute; 
 }
 
-table.Rtbl2	{line-height:16px; border-collapse:collapse;}
-/* .FrW2		{padding-left:5px;font-weight: bold;}
+table.Rtbl2 {line-height:16px; border-collapse:collapse;}
+/* .FrW2    {padding-left:5px;font-weight: bold;}
 */
-.FrW2		{padding-left:1px;font-weight: bold;}
-.To2		{text-indent: 50px;font-style: italic}
-/* .FrCN2, td.ToW22, td.POS2	{padding-left:5px;}
+.FrW2   {padding-left:1px;font-weight: bold;}
+.To2    {text-indent: 50px;font-style: italic}
+/* .FrCN2, td.ToW22, td.POS2  {padding-left:5px;}
 */
 .td_one{width:94px}
 .td_two{width:128px}
-.FrCN2, td.ToW22, td.POS2	{padding-left:1px;font-size:11px;}
-.ToCN2	{padding-left:20px; font-style: italic}
-.ToW2	{padding-left:5px; padding-right: 5px}
-.Ex2, td.ToEx2	{padding-left: 5px; padding-right:5px; color:SlateGray;}
-.FrEx2	{padding-left: 5px; padding-right:5px; color:#483D8B;}
-.ToNt2	{padding-left: 5px; padding-right:5px; color:red;}
-span.POS2	{padding-left:2px;}
-.POS2		{color:#524BD3; font-style: italic;}
+.FrCN2, td.ToW22, td.POS2 {padding-left:1px;font-size:11px;}
+.ToCN2  {padding-left:20px; font-style: italic}
+.ToW2 {padding-left:5px; padding-right: 5px}
+.Ex2, td.ToEx2  {padding-left: 5px; padding-right:5px; color:SlateGray;}
+.FrEx2  {padding-left: 5px; padding-right:5px; color:#483D8B;}
+.ToNt2  {padding-left: 5px; padding-right:5px; color:red;}
+span.POS2 {padding-left:2px;}
+.POS2   {color:#524BD3; font-style: italic;}
 tr.evenExHide, tr.oddExHide {display:none}
 
 
 
 /*
-.FrW2		{padding-left:5px;font-weight: bold;}
+.FrW2   {padding-left:5px;font-weight: bold;}
 .FrCN2 {padding-left:15px;}
 
 #si {width:90%;max-width:180px;}
@@ -61,18 +62,18 @@ tr.evenExHide, tr.oddExHide {display:none}
 
 
 
-#Rtbl2		{position:absolute; right: 0px; top:278px; width:400px; border: solid 1px black;}
-table.Rtbl2	{border: solid 1px white; line-height:16px; border-collapse:collapse;}
-td.FrW2		{padding-left:5px;font-weight: bold;}
-td.To2		{text-indent: 50px;font-style: italic}
-td.FrCN2, td.ToW22, td.POS2	{padding-left:5px;}
-td.ToCN2	{padding-left:20px; font-style: italic}
-td.ToW2	{padding-left:5px; padding-right: 5px}
-td.Ex2, td.ToEx2	{padding-left: 5px; padding-right:5px; color:SlateGray;}
-td.FrEx2	{padding-left: 5px; padding-right:5px; color:#483D8B;}
-td.ToNt2	{padding-left: 5px; padding-right:5px; color:red;}
-span.POS2	{padding-left:2px;}
-.POS2		{color:#524BD3; font-style: italic;}
+#Rtbl2    {position:absolute; right: 0px; top:278px; width:400px; border: solid 1px black;}
+table.Rtbl2 {border: solid 1px white; line-height:16px; border-collapse:collapse;}
+td.FrW2   {padding-left:5px;font-weight: bold;}
+td.To2    {text-indent: 50px;font-style: italic}
+td.FrCN2, td.ToW22, td.POS2 {padding-left:5px;}
+td.ToCN2  {padding-left:20px; font-style: italic}
+td.ToW2 {padding-left:5px; padding-right: 5px}
+td.Ex2, td.ToEx2  {padding-left: 5px; padding-right:5px; color:SlateGray;}
+td.FrEx2  {padding-left: 5px; padding-right:5px; color:#483D8B;}
+td.ToNt2  {padding-left: 5px; padding-right:5px; color:red;}
+span.POS2 {padding-left:2px;}
+.POS2   {color:#524BD3; font-style: italic;}
 tr.evenExHide, tr.oddExHide {display:none}
 */
 
@@ -91,8 +92,8 @@ tr.evenExHide, tr.oddExHide {display:none}
 <div style="border-bottom: solid black 1px; background-color:#918CE3; padding:2px; text-align:center;">
 
 <form method="GET" action="http://api.wordreference.com" class=lookup name="sbox" target="_self">
-	<input type="text" name="w" id="inputWord" maxlength="30" tabindex="1" accesskey="s" title="enter the word" value=""> 
-	<select size="1" name="dict" tabindex="2" id="dictselect">
+  <input type="text" name="w" id="inputWord" maxlength="30" tabindex="1" accesskey="s" title="enter the word" value=""> 
+  <select size="1" name="dict" tabindex="2" id="dictselect">
 
     <option value="enit">English-Italian</option>
     <option value="iten">Italian-English</option>
@@ -108,7 +109,7 @@ tr.evenExHide, tr.oddExHide {display:none}
     <option value="entr">English-Turkish</option>
     <option value="enar">English-Arabic</option>
 
-	</select>
+  </select>
   <input type="submit" value="Go" id="translate" autofocus="autofocus" name="B" title="Look Up" tabindex="3" style="padding:0px">
 </form>
 
@@ -122,12 +123,19 @@ tr.evenExHide, tr.oddExHide {display:none}
 
 <div id="mainDiv">
   <div heigth="5px"></div>
-  
-  <table class='WRD hidden' id="PrincipalTranslations">
+
+    <table class='hidden' id="Error">
+      <tr class="error_m hidden">
+        <td class='errorTitle'>error</td>
+        <td class='errorDescription'>error's description</td>
+      </tr>
+    </table>
+
+    <table class='WRD hidden' id="PrincipalTranslations">
       <tr class='wrtopsection'>
         <td colspan='3' title='Principal Translations'><strong>Principal Translations</strong></td>
       </tr>
-      
+        
       <tr class='even_m hidden'>
         <td class='td_one'>
           <span class='FrW2'>term</span>
@@ -138,7 +146,7 @@ tr.evenExHide, tr.oddExHide {display:none}
           <em class='POS2'>POS2</em>
         </td>
       </tr>
-      
+        
       <tr class='odd_m hidden'>
         <td>
           <span class='FrW2'>term</span>
@@ -149,9 +157,8 @@ tr.evenExHide, tr.oddExHide {display:none}
           <em class='POS2'>POS2</em>
         </td>
       </tr>
-
-      
     </table>
+      
     <table class='WRD hidden' id="AdditionalTranslations">
       <tr class='wrtopsection'>
         <td colspan='3' title='Additional Translation'><strong>Additional Translations</strong></td>
@@ -163,7 +170,6 @@ tr.evenExHide, tr.oddExHide {display:none}
         <td colspan='3' title='Entries'><strong>Entries</strong></td>
       </tr>
     </table>
-  </div>
   
     <table class='WRD hidden' id="Compounds">
       <tr class='wrtopsection'>
@@ -175,4 +181,3 @@ tr.evenExHide, tr.oddExHide {display:none}
 
 </body>
 </html>
-
