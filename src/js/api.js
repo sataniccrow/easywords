@@ -16,21 +16,20 @@ var sataniccrowNS = {
     var isResult = 0;
     var ptArray = [];
     var errorArray = [];
-    // $.ajax({
-    //   type: "GET",
-    //   url: "http://api.wordreference.com/"+ ownerApiKey+"/json/"+lang +"/"+word,
-    //   contentType: "application/json",
-    //   dataType: "json",
-    //   success: onSuccess,
-    //   error: onError
-    // });
-
     $.ajax({
       type: "GET",
-      url: "http://api.wordreference.com/" + ownerApiKey + "/json/" + lang + "/" + word,
+      url: "http://api.wordreference.com/"+ ownerApiKey+"/json/"+lang +"/"+word,
       contentType: "application/json",
-      success: parseJsonImpl
+      dataType: "json",
+      success: onSuccess
     });
+
+    // $.ajax({
+    //   type: "GET",
+    //   url: "http://api.wordreference.com/" + ownerApiKey + "/json/" + lang + "/" + word,
+    //   contentType: "application/json",
+    //   success: parseJsonImpl
+    // });
 
     function parseJsonImpl(data, status) {
       try {
