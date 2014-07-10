@@ -1,9 +1,0 @@
-This project is a chrome extension to aid the use of Wordreference API during browsing session.
-
-Before packing this file creating the .crx extension, you should go to the API registration page and create your own API_key: http://www.wordreference.com/docs/APIregistration.aspx
-then you have to substitute your key in
-> src > js > api.js (line 8: PERSONAL_CODE)
-
-You can find a detailed documentation about wr API here: http://www.wordreference.com/docs/api.aspx
-
-WR API ToS: http://www.wordreference.com/docs/api.aspx

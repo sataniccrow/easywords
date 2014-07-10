@@ -1,12 +1,12 @@
-API key: PERSONAL_CODE
+API key: d397f
 
 API json: 
-translation: http://api.wordreference.com/PERSONAL_CODE/json/enit/hand
-thesaurus: http://api.wordreference.com/PERSONAL_CODE/json/thesaurus/hand
+translation: http://api.wordreference.com/d397f/json/enit/hand
+thesaurus: http://api.wordreference.com/d397f/json/thesaurus/hand
 
 API html:
-translation: http://api.wordreference.com/PERSONAL_CODE/enit/hand
-thesaurus: http://api.wordreference.com/PERSONAL_CODE/thesaurus/hand
+translation: http://api.wordreference.com/d397f/enit/hand
+thesaurus: http://api.wordreference.com/d397f/thesaurus/hand
 
 
 The category blocks that the API returns can be any of the following:

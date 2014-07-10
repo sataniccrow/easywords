@@ -1,24 +1,93 @@
 var sataniccrowNS = {
+  ownerApiKey : "",
+  keySequence : [],
+  sequenceManager: function(val) {
+    sataniccrowNS.keySequence.push(val);
+
+    if(sataniccrowNS.keySequence && sataniccrowNS.keySequence.length === 6){
+      if(sataniccrowNS.keySequence[0] === 37 &&
+          sataniccrowNS.keySequence[1] === 39 &&
+          sataniccrowNS.keySequence[2] === 37 &&
+          sataniccrowNS.keySequence[3] === 39 &&
+          sataniccrowNS.keySequence[4] === 38 &&
+          sataniccrowNS.keySequence[5] === 40
+        ){
+        sataniccrowNS.keySequence = [];
+        return true;
+      }else{
+        sataniccrowNS.keySequence = sataniccrowNS.keySequence.splice(1,5);
+        return false;
+      }
+    }else{
+      return false;
+    }
+  },
   getSections: function() {
     var sections = ['PrincipalTranslations', 'AdditionalTranslations', 'Entries', 'Compounds'];
     return sections;
+  },
+  resetOwnerApiKey: function() {
+    chrome.storage.sync.remove("apiKey", function(){
+      $('#mainBlock').attr('class', 'hidden');
+      $('#reset').attr('class', 'hidden');
+      $('#settings').removeClass('hidden');
+      sataniccrowNS.ownerApiKey = "";
+    });
   },
   getErrorSections: function() {
     var sections = ['Error', 'Note'];
     return sections;
   },
   getOwnerApiKey: function() {
-    var ownerApiKey = "d397f";
-    return ownerApiKey;
+    var ownerApiKey = "";
+    chrome.storage.sync.get("apiKey", function(val) {
+      sataniccrowNS.ownerApiKey = val.apiKey;
+
+      if(val.apiKey){
+        $('#settings').attr('class', 'hidden');
+        $('#mainBlock').removeClass('hidden');
+        $('#reset').removeClass('hidden');
+      }else{
+        $('#mainBlock').attr('class', 'hidden');
+        $('#reset').attr('class', 'hidden');
+        $('#settings').removeClass('hidden');
+      }
+    });
   },
-  translateIt: function(word, lang) {
-    var ownerApiKey = sataniccrowNS.getOwnerApiKey();
+  setApiKey: function (val) {
+    if(val){
+      chrome.storage.sync.set({"apiKey": val}, function() {
+        sataniccrowNS.ownerApiKey = val;
+     });
+    }
+  },
+  translatePlaneHtml: function(word, lang){
+    $.ajax({
+      type: "GET",
+      url: "http://www.wordreference.com/"+lang +"/"+word,
+      dataType: "html",
+      success: onPlainHtmlSuccess
+    });
+
+    function onPlainHtmlSuccess(data, status){
+      $('#loading').attr('class', 'hidden');
+      var result = $(data).find("#articleWRD");
+      
+      if(result.text().replace(/\r?\n|\r/g,"") !== ""){
+        $("#mainDiv").html(result);
+        $(".WRreporterror").remove();
+      }else{
+        $("#mainDiv").html('<div id="articleWRD"><div><p class="wrtopsection">No match has been found for: <b>' + $("#inputWord").val() + '</b></p></div>');
+      }
+    }
+  },
+  translateIt: function(word, lang){
     var isResult = 0;
     var ptArray = [];
     var errorArray = [];
     $.ajax({
       type: "GET",
-      url: "http://api.wordreference.com/"+ ownerApiKey+"/json/"+lang +"/"+word,
+      url: "http://api.wordreference.com/"+ sataniccrowNS.ownerApiKey +"/json/"+lang +"/"+word,
       contentType: "application/json",
       dataType: "json",
       success: onSuccess

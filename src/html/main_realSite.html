@@ -1,0 +1,607 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<head>
+<title>easyWords</title>
+<META NAME='ROBOTS' CONTENT='NOINDEX'>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+td.nums1{font-weight:bold;color:#5e58c7;vertical-align:top;text-align:right}
+td.roman1{font-weight:bold;color:#5e58c7;vertical-align:top;font-size:16px}
+span.roman1{font-weight:bold;color:#5e58c7;vertical-align:bottom}
+span.b{font-weight:bold}
+span.ic,span.i,.bl{font-style:italic;color:#039}
+span.r{color:red}
+span.supr1{vertical-align:super;color:#039}
+span.ac{font-variant:small-caps;color:red;font-weight:bold}
+div.trans	{padding:0}
+ol.entry li	{margin-top:5px;}
+.hide 	{display:none}
+.clickable{cursor:pointer}
+.small1{font-size:x-small}
+#myAutoComplete{width:150px;padding:2px 2px 2px 2px;display:inline;text-align:left}
+#myACContainer{display:none}
+.yui-skin-sam .yui-ac{position:relative;font-family:arial;font-size:100%}
+.yui-skin-sam .yui-ac-input{position:relative;width:150px}
+.yui-skin-sam .yui-ac-container{position:absolute;top:27px;left:-3px;width:100%;text-align:left}
+.yui-skin-sam .yui-ac-content{position:absolute;width:97%;border:1px solid #808080;background:#fff;overflow:hidden;z-index:9050;max-height:300px;overflow:auto;overflow-x:hidden;_height:300px;padding-left:0;padding-right:0;box-shadow:2px 2px 5px #b7b7b7;-webkit-border-radius:3px 3px 3px 3px;-moz-border-radius:3px 3px 3px 3px;border-radius:3px 3px 3px 3px}
+.yui-skin-sam .yui-ac-bd{padding-left:0;padding-right:0}
+.yui-skin-sam .yui-ac-shadow{position:absolute;margin:.3em;width:100%;background:#000;-moz-opacity:.10;opacity:.10;filter:alpha(opacity=10);z-index:904900}
+.yui-skin-sam .yui-ac iframe{opacity:0;filter:alpha(opacity=0);padding-right:.3em;padding-bottom:.3em}
+.yui-skin-sam .yui-ac-content ul{margin:0;padding:0;width:100%}
+.yui-skin-sam .yui-ac-content li{margin:0;padding:2px 5px;cursor:pointer;white-space:nowrap;list-style:none;zoom:1}
+.yui-skin-sam .yui-ac-content li.yui-ac-prehighlight{background:#b3d4ff}
+.yui-skin-sam .yui-ac-content li.yui-ac-highlight{background:#5e58c7;color:#FFF}
+li.yui-ac-highlight a{color:white}
+.yui-ac-content li{border-top:solid 1px #dcdcdc}
+.yui-ac-content li:first-child{border-top:0}
+.myCustomResult{cursor:pointer}
+.lang{background-color:#b7b7b7;color:white;font-weight:bold;padding:1px}
+.dark{background-color:#878787}
+.ACconj{float:right}
+.forum{text-overflow:ellipsis;overflow:hidden}
+html{font-size:100%;overflow:auto;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{margin:0;font-size:12px;line-height:1.231;font-family:Arial,"Helvetica Neue",sans-serif;background:white}
+body,button,input,select,textarea{font-family:sans-serif;color:#222}
+audio:not([controls]){display:none}
+a{text-decoration:none;color:#0645ad}
+a:hover{text-decoration:underline}
+a:visited{color:#819}
+a img{border:0}
+.mobileblock{display:inline}
+.alwaysblock{display:block}
+.alwaysblock:active,.alwaysblock:focus,.alwaysblock:hover{color:#dcdcdc}
+#container{width:1002px;margin:0 auto;overflow:hidden;box-shadow:0 0 5px 1px #5e58c7;margin-bottom:3px;border-radius:3px;min-width:300px}
+#header{background:#5e58c7;position:static;margin:0 auto;height:41px;line-height:38px;border-bottom-left-radius:3px;border-bottom-right-radius:3px;-webkit-border-bottom-left-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px}
+#logo{color:#f8f7ff;float:left;font-family:Arial,Helvetica-Bold;font-size:16px;padding-left:16px;white-space:nowrap}
+#logo a{color:#f8f7ff;font-family:Arial,Helvetica-Bold;font-size:22px}
+#nav{color:#f7f6ff;float:right;font-family:Arial,"Helvetica Neue";font-size:13px;padding-right:13px;padding-top:2px}
+#nav a{font-weight:bold;color:#f7f6ff;font-size:13px;font-family:Arial,"Helvetica Neue"}
+#logo h1{color:#e5e3ff;font-family:Arial,Helvetica;font-size:12px;display:inline}
+#ad1{position:static;width:728px;height:90px;margin:6px auto}
+#top728{border:0 none;height:90px;overflow:hidden;width:100%}
+#ad2{position:static;width:728px;height:90px;margin:6px auto}
+#bottom728{border:0 none;height:90px;overflow:hidden;width:100%}
+#search{height:50px;background:#ebebf2;position:static;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;border:1px #dcdcdc solid}
+#search input{background:#fff;border:1px solid #d3d3d3;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;height:30px;width:280px;font-size:16px;padding-right:2px}
+input:-moz-placeholder{color:#b3b3b3}
+*[placeholder]{padding-left:5px!important}
+#search input:active,#search input:focus{color:black}
+#text_form{float:left;margin-left:184px;margin-top:6px}
+#text_form input.button{border:0;width:12px;height:12px;background-color:#d7d7d7;cursor:pointer;background-position:5px;line-height:31px;vertical-align:bottom;background-image:none;position:relative;bottom:1px;padding:8px 7px 8px 7px}
+.inputcontainer{border:solid 1px #b7b7b7;background-color:#d7d7d7;cursor:pointer;background-position:5px;line-height:31px;vertical-align:bottom;background-image:none;padding-right:2px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;width:25px;display:inline-block;zoom:1;*display:inline}
+label.custom-select{position:relative;display:inline-block}
+.custom-select select{position:relative;border:1px solid #b7b7b7;padding:7px 8px 6px 10px;margin:0;font:inherit;font-size:13px;font-weight:bold;width:164px;outline:0;line-height:1.2;background-color:#d7d7d7;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+.custom-select select:focus{-webkit-box-shadow:0 0 3px 1px #ccc;-moz-box-shadow:0 0p 3px 1px #ccc;box-shadow:0 0 3px 1px #ccc}
+#forumapi{background-repeat:no-repeat;float:right;margin-top:15px;margin-right:9px;white-space:nowrap;font-size:12px}
+#forumapi span.bttn a{font-size:14px;font-weight:bold;color:gray;margin-right:-4px;padding:7px;border:1px solid #c9c9c9;background:#f6f6f9}
+#forumapi span.forum a{-webkit-border-top-left-radius:5px;-webkit-border-bottom-left-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-bottomleft:5px;border-top-left-radius:5px;border-bottom-left-radius:5px}
+#forumapi span.api a{-webkit-border-top-right-radius:5px;-webkit-border-bottom-right-radius:5px;-moz-border-radius-topright:5px;-moz-border-radius-bottomright:5px;border-top-right-radius:5px;border-bottom-right-radius:5px}
+.content{margin-top:-5px;background-color:#f6f6f9;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;border:1px #dcdcdc solid;overflow:hidden;clear:both}
+#contenttable{border-collapse:collapse}
+#leftcolumn{width:164px;line-height:1.4;border-right:1px solid #dcdcdc}
+#leftcolumn ul{list-style-type:none}
+li.synonym{margin-left:auto}
+#left{padding-left:0;margin-top:0;font-size:11px}
+#left ul li{padding-right:1px}
+#left ul{padding-left:15px;padding-right:1px}
+#rstitle{margin-top:15px}
+#rsinfo{padding-left:25px}
+#rstitle,#rsinfo{display:none}
+#wrsave{list-style-type:none}
+#more{padding-left:17px}
+#more p{margin-bottom:0}
+.randomword{padding-left:15px}
+td .title1{font-size:13px;font-weight:bold;border-bottom:1px solid #dcdcdc;margin-bottom:7px;padding-top:25px;padding-bottom:6px;padding-left:16px;color:#777}
+#centercolumn{width:524px;padding:0}
+#listen_widget,.conjugate_link{color:#707070;background-color:#f9f9f9;font-size:12px;display:inline-block;white-space:nowrap;padding:4px 5px 2px;border:1px solid #c5c5c5;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;margin-left:0}
+#listen_txt{cursor:pointer}
+#listen_txt,.listen_language{padding:5px 7px 4px 5px;position:relative;top:-2px;left:4px;text-transform:uppercase;border-left:1px solid #c5c5c5}
+.conjugate_link{height:10px;font-variant:small-caps;vertical-align:bottom;padding:0 2px 2px 2px;line-height:.7;top:-1px;text-transform:none}
+a .listen_language,a.conjugate_link:visited{color:#707070}
+#listen_widget a:hover,.conjugate_link:hover{text-decoration:none;font-weight:bold!important}
+#dummyspan{display:none}
+#article,#articleHead,#postArticle{padding:0 20px}
+#article a,#articleWRD a,#articleHead a{font-size:13px}
+#article p,#articleWRD p,#articleHead p{font-size:13px;margin-bottom:3px}
+div#article .noword p{font-size:14px}
+div#article p#noEntryFound{font-size:12px}
+div#article p#gSuggestionHead{margin-bottom:0;font-size:12px}
+div#article p.tobetranslated{font-size:12px}
+div#spellSug{margin-left:2px!important}
+#spellSug table{border-style:hidden;border-collapse:collapse}
+#spellSug td{border-width:0}
+h3.headerWord{display:inline-block;font-family:"Times New Roman";font-size:25px;margin:20px 18px 20px 0}
+#footerlink{display:none}
+#article p.EngInf{font-size:12px;padding-bottom:0;margin-bottom:5px}
+.inflections{margin-left:10px}
+.notfound{padding:2px;border-top:solid #c8c8c8 1px;border-bottom:solid #c8c8c8 1px;background-color:#f8f8f8;margin-top:5px}
+.forma{font-weight:bold;color:black}
+.mfsp{color:#039;font-style:italic}
+.etichetta,.attrverpron{font-variant:small-caps;text-transform:lowercase}
+.boxc{display:block;border:1px solid black;padding:5px;background:white}
+.bt{display:block}
+div.conv{margin-left:20px}
+div.notConv{margin-left:0;padding-left:0;border-left:0}
+.enmon ul{list-style-type:none;margin-top:0}
+ul.subEnt,.subEnt ul,.subEntry ul{margin-top:0;margin-bottom:0;padding-bottom:0}
+span.romansp{font-style:normal;font-weight:normal}
+ul.sense1{margin-left:-30px}
+span.xrhom{vertical-align:super;color:#039}
+span.senseGP{display:block}
+.senseGP ul li{margin-top:4px;margin-bottom:-4px}
+p.subSN{margin-left:40px;margin-top:0;margin-bottom:0;font-size:12px}
+span.supr2{color:#039}
+span.psg{display:block}
+.subEntry span{display:inline}
+ul.hEntry{margin-left:-20px}
+.espb ul,.espl ul{list-style-type:none}
+.thumbs{display:none}
+.engthes ul{list-style-type:none;padding-top:0;margin-top:0}
+.liSense{margin-left:-40px}
+span.syno:hover{text-decoration:underline}
+div.tags{display:inline;width:50%;float:right;font-style:italic}
+.clickable ul li.liSense ul li.synonym{display:inline-block;font-size:14px}
+.clickable ul li.synonym{display:inline-block;font-size:14px}
+.tags{color:gray}
+.clickable ul li.synonym:after{content:',\00a0'}
+.clickable ul li.last:after{content:''}
+.reseta{font-weight:bold}
+.inps{font-size:12px;border:solid 1px gray;background-color:#f0f0f0;padding-bottom:5px;padding-left:10px;width:80%}
+.inps label{font-weight:bold}
+.inps input{width:300px}
+.addterm{margin-top:5px}
+.FTsource{padding-left:30px}
+.FTlist{padding-left:60px}
+#FTintro{padding-top:5px;padding-bottom:5px}
+.wrcopyright{font-family:Verdana;margin-left:20px}
+table.WRD{width:100%;border-collapse:collapse;border-top:solid 1px #dcdcdc;border-bottom:solid 1px #dcdcdc;cursor:pointer}
+tr.wrtopsection td{padding-bottom:7px;padding-top:7px;font-size:13px;text-align:center}
+#articleWRD p.note-othersideonly{margin-left:20px;font-size:12px}
+tr.more td{border-bottom:1px solid #dcdcdc}
+.POS2{color:#0645ad}
+.WRD td{padding:2px}
+.WRD td.FrWrd{padding-left:20px}
+.WRD td.ToWrd{color:black;padding-right:20px}
+td.ToEx,td.FrEx{color:gray}
+.To2{font-style:italic}
+.dsense {float: right !important;}
+.ltr{direction:ltr}
+.notePubl{padding-left:20px!important;padding-right:20px!important}
+table.WRD .additional{border-top:solid 1px #dcdcdc}
+table.WRDrefl{border-bottom:0;margin-bottom:15px}
+.WRreporterror{width:100%;border-collapse:collapse;border-bottom:1px solid #DCDCDC;margin-bottom:40px}
+.WRreporterror td{padding-left:2px;padding-right:4px}
+.even{background-color:#ebebf2;vertical-align:top}
+.odd{vertical-align:top}
+:not(.even)+.even,:not(.odd)+.odd{border-top:1px solid #dcdcdc}
+.gold{background-color:gold;vertical-align:top}
+p#threadsHeader{font-size:13px!important;font-weight:bold;margin-bottom:0;padding:7px 0;text-align:center;border-top:1px solid #dcdcdc}
+#lista_link{font-size:13px;margin-bottom:5px;padding-left:60px;border-top:1px solid #dcdcdc;padding-top:13px}
+#lista_link ul li{list-style-type:none;direction:ltr}
+#lista_link ul{padding-left:0;margin-bottom:5px}
+#lista_link a{font-size:13px}
+.threadnote{margin-left:43px;margin-top:15px;font-weight:bold}
+.threadnote ol{font-weight:normal;padding-top:2px;padding-bottom:2px}
+.threadalt li{padding:2px 0}
+#extra_links{margin-bottom:15px;margin-left:43px}
+#extra_links a{display:list-item;padding:2px 0}
+#extra_links .boxed.last{border:none!important}
+#extra_links a:last-child .boxed{border-bottom:0 none}
+p.other_languages{line-height:1.5em;font-size:12px!important}
+.FCboxes{margin-top:5px;margin-left:-5px;padding-top:7px;padding-left:10px;border-top:solid 1px #dcdcdc}
+.rightcolumn,#rightcolumn{width:304px}
+#rightcolumn{border-left:1px solid #dcdcdc}
+#rightcolumn,#leftcolumn,#centercolumn{vertical-align:top}
+table.rightcolumn{table-layout:fixed}
+table #right{padding-left:18px;margin-top:0}
+td.ad{padding-bottom:10px}
+div.plusone{margin-top:3px;margin-left:5px;vertical-align:middle;display:table-cell}
+#fb-root iframe{height:70px!important}
+.us300c{text-align:center}
+#footer{font-size:11px;position:relative;padding-top:7px;padding-bottom:5px}
+.footer{width:1000px}
+#WHlinksmoved{display:none}
+input::-webkit-input-placeholder:focus,input::-webkit-input-placeholder:active{color:#fff!important}
+input:-moz-placeholder:focus{color:#fff!important}
+input:-ms-input-placeholder:focus{color:#fff!important}
+</style>
+
+<style type="text/css">
+
+@media screen
+ and (max-width: 769px) 
+{
+td#leftcolumn,
+ td#rightcolumn, td.bannertop, .OxAd, #ad1, #nav, .mobileremove, #logo h1, .eslinks {display:none}
+/*tr.even, tr.odd, .gold  {-webkit-text-size-adjust:150%} */
+/*.lookup, .namecell h2{	float:left;}*/
+/*.layout, .content{ min-width:auto;width:auto !important}*/
+#logo {padding-left:10px;}
+.FTlist, .FTsource{padding-left:5px;padding-right:5px;}
+#container{width:100%;position:absolute;}
+/*#postArticle, header, article,.content {width:inherit;}*/
+#postArticle, #article, #articleWRD, #search{width:inherit;padding-left:3px;}
+#text_form{left:auto;margin-left:auto;margin-top:2px;float:none;}
+#search input{width:38%;}
+#search{height: auto; padding-bottom: 3px;}
+.content, #contenttable, #centercolumn, #header, #search{width:auto;}
+.content{min-width:inherit; border:0; margin-top:0px;}
+#content{margin-bottom:0px}
+#article, #postArticle {padding: 0 3px;}
+#articleWRD {padding: 0;}
+h3.headerWord {margin:5px 20px 5px 2px;}
+/*hide wordheader links*/
+#WHlinks{display:none;}
+#WHlinksmoved{display:block;}
+/* hide forumapi buttons*/
+#forumapi{	display:none;}
+/* for items to be easier to click in mobile view */
+.mobileblock, #WHlinksmoved a{
+	display:block;font-size:1.5em;border-bottom:solid 1px #dcdcdc;margin-top:0;margin-bottom:0;padding-left:5px;
+	padding-top:12px;padding-bottom:12px;
+	}
+	#WHlinksmoved a:first-child{border-top:solid 1px #dcdcdc;}
+.first{border-top:solid 1px #dcdcdc;padding-left:0px;}
+#footer{margin-top:0px;padding-top:0px;}
+.mobileblock:active, #WHlinksmoved a:active, .mobileblock:focus, #WHlinksmoved a:focus, .mobileblock:hover, #WHlinksmoved a:hover{color:#dcdcdc;}
+#article{font-size:16px;}
+#articleWRD{font-size:16px;}
+.WRD td.FrWrd {padding-left:5px;}
+.WRD td.ToWrd{padding-right:5px;}
+td.FrEx2, td.ToEx2{-webkit-text-size-adjust:auto}
+#footerlink a{font-variant:small-caps;font-size:18px !important;}
+#footerlink{display:inline-block;margin-left:3px;float:right;padding-top:10px;}
+.yui-skin-sam .yui-ac-content{width: 150%;font-size:1.5em;}
+.yui-skin-sam .yui-ac-content li:active, .yui-skin-sam .yui-ac-content li:hover{
+		background-color:#5e58c7;color:white;
+	}
+.yui-skin-sam .yui-ac-content li{margin: 5px;padding: 5px 8px;}
+.myCustomResult:hover, .myCustomResult:active{background-color:#5e58c7;color:white;}
+
+}
+
+</style>
+
+<style type="text/css">
+
+tr.even:hover, tr.odd:hover, tr.evenEx:hover, tr.oddEx:hover{background-color:gold;}
+
+</style>
+<style type="text/css">
+table.WRDrefl{border-bottom:none;margin-bottom:15px;}
+.super{color:red;vertical-align:super;font-size:0.8em;}
+span.super:hover{text-decoration:none !important;}
+.appad{cursor:pointer;padding:8px;width:80%;margin:5px auto 16px;text-align:center;border-radius:3px;border:solid 1px #222;color:blue;background-color:Lightgoldenrodyellow}
+#gamesad {background-color:#FADB4E;}
+a.gamelink, #gamesad:hover, .appad{text-decoration:none;}
+.appad:visited{text-decoration:none;color:blue;}
+#ieupgrade{font-weight:bold;padding:3px 3px 0 0;margin:3px 3px 0 0;}
+</style>
+<style type="text/css">	
+    #headerTabs ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+    }
+
+	#headerTabs li {
+		float: left;
+		border: 1px solid #bbb;
+		border-bottom-width: 0;
+		margin: 0;
+    }
+
+	#headerTabs a {
+		text-decoration: none;
+		display: block;
+		background: #eee;
+		padding: 0.24em 1em;
+		color: #00c;
+		width: 8em;
+		text-align: center;
+    }
+	
+	#headerTabs a:hover {background: #ddf;}
+	#headerTabs .selected {border-color: black;}
+	
+	#headerTabs .selected a {
+		position: relative;
+		top: 1px;
+		background: #F6F6F9;
+		color: #222222;
+		font-weight: bold;
+	}	
+	#collinsdiv {display:none;}
+	#headerTabs {margin-top:10px}
+	.noword > p {font-size: 14px !important;}
+	#articleWRD .wrcopyright {font-size:10px;}
+	#tabWR {margin-left: 15px !important;}
+</style>
+
+<style>
+.tooltip span {
+    z-index:10;
+    display:none;
+    padding:14px 20px;
+    bottom: 18px;
+    margin-left:-160px;
+    width:240px;
+    line-height:16px;
+    border-radius:5px;
+    opacity: 0.8;
+    font-style: normal;
+    text-decoration: none;
+    cursor:default;
+}
+.tooltip:hover span {
+    display:inline;
+    position:absolute;
+    border:2px solid #000;
+    color:#EEE;
+    background:#000;
+}
+.tooltip.POS2 {
+    display: inline;
+    position: relative;
+}
+.tooltip.POS2:hover:before {
+    display:inline;
+    border: solid;
+    border-color: #000 transparent;
+    border-width: 6px 6px 0px 6px;
+    bottom: 12px;
+    content:"";
+    position: absolute;
+    z-index: 9;
+    font-style: normal;
+    opacity: 0.8;
+}
+</style>
+
+<script src="..\js\jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="..\js\json2.js" type="text/javascript"></script>
+<script src="..\js\api.js" type="text/javascript"></script>
+<script src="..\js\trigger.js" type="text/javascript"></script>
+<script src="..\js\autofocusHack.js" type="text/javascript"></script>
+
+</head>
+
+<body style="width:300px">
+
+<div style="font-weight:bold;font-size:15px;border-bottom: solid black 1px; border-top: solid black 1px; min-height:20px; background-color:#5E58C7;color:#FFFFFF; text-align:center">easyWords<br>&#169; WordReference.com</div>
+<div id="settings" style="border-bottom: solid black 1px; background-color:#918CE3; padding:2px; text-align:center;">
+  <form>
+    <input id="apiKey" type="text" maxlength="10" />
+    <input type="submit" value="set api key" id="setApiKey" tabindex="3"/>
+  </form>
+</div>
+
+<div id="reset" style="border-bottom: solid black 1px; background-color:#918CE3; padding:2px; text-align:center;">
+  <span id="resetOwnerApiKey" style="text-decoration:underline;color:white">reset api key</span>
+</div>
+
+<div id="mainBlock" style="border-bottom: solid black 1px; background-color:#918CE3; padding:2px; text-align:center;">
+	<form method="GET" action="http://api.wordreference.com" class=lookup name="sbox" target="_self">
+	  <input type="text" name="w" id="inputWord" maxlength="30" tabindex="1" accesskey="s" title="enter the word" value=""> 
+	  <select size="1" name="dict" tabindex="2" id="dictselect">
+
+	    <option value="enit">English-Italian</option>
+	    <option value="iten">Italian-English</option>
+	    <option value="enfr">English-French</option>
+	    <option value="enpt">English-Portuguese</option>
+	    <option value="enpl">English-Polish</option>
+	    <option value="enro">English-Romanian</option>
+	    <option value="engr">English-Greek</option>
+	    <option value="enzh">English-Chinese</option>
+	    <option value="enja">English-Japanese</option>
+	    <option value="enko">English-Korean</option>
+	    <option value="encz">English-Czech</option>
+	    <option value="entr">English-Turkish</option>
+	    <option value="enar">English-Arabic</option>
+
+	  </select>
+	  <input type="submit" value="Go" id="translate" autofocus="autofocus" name="B" title="Look Up" tabindex="3" style="padding:0px">
+	</form>
+</div>
+
+<div id="mainDiv">
+	<div id="articleWRD">
+	<div><p class="wrcopyright"><a name="test116"></a> WordReference English-Italiano Dictionary © 2014:</p></div><table class="WRD" onclick="redirectWR(event,&quot;WRenit&quot;)"><tbody><tr class="wrtopsection"><td colspan="3" title="Principal Translations"><strong>Principal Translations/Traduzioni principali</strong></td></tr>
+	<tr class="even" id="enit:6148"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (examination)</td><td class="ToWrd">esame, compito <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">test <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2">esame, compito</td><td class="ToWrd">saggio <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">I have a German test today, and hope I get good results.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Ho un compito di tedesco oggi, spero che mi vada bene.</td></tr>
+	<tr class="odd" id="enit:6151"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (analysis)</td><td class="ToWrd">esperimento <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">test <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">The scientists are going to run their tests.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Gli scienziati faranno i loro esperimenti.</td></tr>
+	<tr class="even" id="enit:6153"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">vtr<span><i>transitive verb</i>: Verb taking a direct object--for example, "<b>Say</b> something." "She <b>found</b> the cat." </span></em></td><td> (subject to testing)</td><td class="ToWrd">verificare<a title="conjugate verificare" class="conjugate" href="/conj/ItVerbs.aspx?v=verificare">⇒</a>, controllare<a title="conjugate controllare" class="conjugate" href="/conj/ItVerbs.aspx?v=controllare">⇒</a>, testare<a title="conjugate testare" class="conjugate" href="/conj/ItVerbs.aspx?v=testare">⇒</a> <em class="POS2">vtr</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">The sensors will test the strength of the fibres.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">I sensori verificano la solidità  delle fibre.</td></tr>
+	<tr class="odd" id="enit:6154"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">vtr<span><i>transitive verb</i>: Verb taking a direct object--for example, "<b>Say</b> something." "She <b>found</b> the cat." </span></em></td><td> (try out)</td><td class="ToWrd">collaudare<a title="conjugate collaudare" class="conjugate" href="/conj/ItVerbs.aspx?v=collaudare">⇒</a>, provare<a title="conjugate provare" class="conjugate" href="/conj/ItVerbs.aspx?v=provare">⇒</a>, testare<a title="conjugate testare" class="conjugate" href="/conj/ItVerbs.aspx?v=testare">⇒</a> <em class="POS2">vtr</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">I want to test the program today to see if it works.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Oggi voglio provare il programma per vedere se funziona.</td></tr>
+	<tr class="even" id="enit:6155"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">vtr<span><i>transitive verb</i>: Verb taking a direct object--for example, "<b>Say</b> something." "She <b>found</b> the cat." </span></em></td><td> (analyse)&nbsp;&nbsp;<span class="dsense">(<i>analisi cliniche</i>)</span></td><td class="ToWrd">analizzare<a title="conjugate analizzare" class="conjugate" href="/conj/ItVerbs.aspx?v=analizzare">⇒</a> <em class="POS2">vtr</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">He is having his urine tested for various disorders.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Sta facendo analizzare le urine per diversi disturbi.</td></tr>
+	<tr class="odd"><td colspan="3" class="wrtopsection">&nbsp;</td></tr><tr class="wrtopsection"><td colspan="3" title="Additional Translations" class="additional"><strong>Additional Translations</strong></td></tr>
+	<tr class="even" id="enit:6149"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (quiz or exam)&nbsp;&nbsp;<span class="dsense">(<i>quesito</i>)</span></td><td class="ToWrd">test <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">problema <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">quesito <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">The teacher gave the pupils a fun test to help with their maths.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">L'insegnante ha dato agli alunni un test divertente per aiutarli con la matematica.</td></tr>
+	<tr class="odd" id="enit:6150"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (criterion)</td><td class="ToWrd">requisito <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">criterio <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">The test of a good athlete is discipline.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Requisito di un buon atleta è la disciplina.</td></tr>
+	<tr class="even" id="enit:6152"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (measurement)</td><td class="ToWrd">misurazione <em class="POS2">nf</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">collaudo <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">controllo <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">Let me just make a test of this driveway.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Ora faccio una misurazione di questo vialetto.</td></tr>
+	<tr class="odd" id="enit:6156"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">vi<span><i>intransitive verb</i>: Verb not taking a direct object--for example, "She <b>jokes</b>." "He <b>has arrived</b>." </span></em></td><td> (undergo testing)</td><td class="ToWrd">fare un test <em class="POS2">vtr</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Next Friday we are going to test.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Venerdì prossimo faremo un test.</td></tr>
+	<tr class="even" id="enit:6157"><td class="FrWrd"><strong>test</strong> <em class="tooltip POS2">vi<span><i>intransitive verb</i>: Verb not taking a direct object--for example, "She <b>jokes</b>." "He <b>has arrived</b>." </span></em></td><td> <i class="Fr2">US, informal</i> (achieve a test result)</td><td class="ToWrd">avere buoni voti <em class="POS2">vtr</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">andare bene a un esame, andare bene a un compito <em class="POS2">vi</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">My brother always tests well.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Mio fratello ha sempre buoni voti.</td></tr>
+	</tbody></table>
+	<table class="WRreporterror">
+	<tbody><tr class="odd more"><td>&nbsp;</td>
+	<td style="text-align:right;"><a target="WRsug" title="Is something important missing? Report an error or suggest an improvement." href="/english/suggestions.aspx?w=test&amp;dict=enit">Segnala un errore</a></td></tr></tbody></table>
+	<div><p class="wrcopyright"><a name="test116"></a> WordReference English-Italiano Dictionary © 2014:</p></div><table class="WRD" id="compound_forms" onclick="redirectWR(event,&quot;WRenit&quot;)"><tbody><tr class="wrtopsection"><td colspan="3" title="Compound Forms" id="compounds"><strong>Compound Forms/Forme composte</strong></td></tr>
+	<tr class="even" id="enit:110149"><td class="FrWrd"><strong>achievement test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (school: assessment)</td><td class="ToWrd">test di profitto <em class="POS2"></em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">prova di abilitazione <em class="POS2"></em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">She performed at the 95th percentile on the math achievement test.</td></tr>
+	<tr class="odd" id="enit:110150"><td class="FrWrd"><strong>acid test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> <i class="Fr2">figurative</i> (<span title="something">[sth]</span> crucial or decisive)</td><td class="ToWrd">prova del fuoco <em class="POS2"></em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">prova del nove <em class="POS2"></em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">The acid test in becoming a good cook is making a perfect soufflé.</td></tr>
+	<tr class="even" id="enit:110151"><td class="FrWrd"><strong>acid test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> <i class="Fr2">literal</i> (chemistry: litmus test for acidity)</td><td class="ToWrd">cartina di tornasole <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:110434"><td class="FrWrd"><strong>alpha test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (computing: first test of a product)</td><td class="ToWrd">versione Alpha <em class="POS2">nf</em></td></tr>
+	<tr class="even" id="enit:1033360"><td class="FrWrd"><strong>apperception test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test di appercezione <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:110577"><td class="FrWrd"><strong>aptitude test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (test of innate ability for <span title="something">[sth]</span>)</td><td class="ToWrd">test attitudinale <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Aptitude tests suggest that I should be a gardener or an archaeologist.</td></tr>
+	<tr class="even" id="enit:1032553"><td class="FrWrd"><strong>association test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test associativo <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:111237"><td class="FrWrd"><strong>beta test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (software: second trial)</td><td class="ToWrd">beta testing <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Although participants in a beta test get new software before anyone else, they must accept that it may not work properly.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx"><span title="Questa frase non è una traduzione della frase inglese.">*</span> Il software sarà consegnato appena finito il beta testing.</td></tr>
+	<tr class="even" id="enit:111238"><td class="FrWrd"><strong>beta test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (intelligence test)&nbsp;&nbsp;<span class="dsense">(<i>esame di intelligenza</i>)</span></td><td class="ToWrd">beta test <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:111239"><td class="FrWrd"><strong>beta test <span title="something">[sth]</span></strong> <em class="tooltip POS2">vtr<span><i>transitive verb</i>: Verb taking a direct object--for example, "<b>Say</b> something." "She <b>found</b> the cat." </span></em></td><td> (software: trial again)</td><td class="ToWrd">collaudare la versione beta <em class="POS2">vtr</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">fare il beta testing <em class="POS2">vtr</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">The company is looking for volunteers to beta test the software upgrade.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Collauderemo la versione beta del programma la prossima settimana.</td></tr>
+	<tr class="even" id="enit:111446"><td class="FrWrd"><strong>blood test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (laboratory test on a blood sample)</td><td class="ToWrd">esame del sangue <em class="POS2">nf</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">Doctors can diagnose a variety of illnesses by taking a blood test.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">I medici sono in grado di diagnosticare numerose malattie basandosi sull'esame del sangue.</td></tr>
+	<tr class="odd" id="enit:1026276"><td class="FrWrd"><strong>breath test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova del palloncino <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:112417"><td class="FrWrd"><strong>chi-square test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (mathematics: )</td><td class="ToWrd">test del chi-quadro <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">We will use a chi-square test to see if the actual statistical distribution fits the theoretical distribution.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">test chi quadrato <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:1022813"><td class="FrWrd"><strong>comparison test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test di convergenza del confronto <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1021141"><td class="FrWrd"><strong>crucial test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test cruciale <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:131434"><td class="FrWrd"><strong>diagnostic test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (procedure for detecting disease, problems)</td><td class="ToWrd">esame diagnostico <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:131604"><td class="FrWrd"><strong>dope test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (test for drugs in the body)</td><td class="ToWrd">test antidroga <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:1112151"><td class="FrWrd"><strong>double-blind test</strong> <em class="POS2"></em></td><td>&nbsp;&nbsp;<span class="dsense">(<i>medicina</i>)</span></td><td class="ToWrd">test in doppio cieco <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:126030"><td class="FrWrd"><strong>driving test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (exam for learner drivers)</td><td class="ToWrd">esame pratico di guida <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">She failed her driving test several times before finally passing.</td></tr>
+	<tr class="odd" id="enit:131688"><td class="FrWrd"><strong>drug test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (screening for traces of a substance)</td><td class="ToWrd">test antidroga <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:1014304"><td class="FrWrd"><strong>fire test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova antincendio <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:1013709"><td class="FrWrd"><strong>flight test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova di volo <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:132662"><td class="FrWrd"><strong>genetic marker test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (test using DNA for identification)</td><td class="ToWrd">analisi di marcatori genetici <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:1007194"><td class="FrWrd"><strong>ground test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test di terra <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1007270"><td class="FrWrd"><strong>group test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test di gruppo <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:1031117"><td class="FrWrd"><strong>high-test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">di alto livello <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1000253"><td class="FrWrd"><strong>impact test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test di impatto <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:117438"><td class="FrWrd"><strong>intelligence test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (test to measure intelligence)</td><td class="ToWrd">test d'intelligenza <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">In the past, all school students had to take an intelligence test.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Nel passato, tutti gli alunni dovevano sostenere un test d'intelligenza a scuola.</td></tr>
+	<tr class="even" id="enit:117777"><td class="FrWrd"><strong>laboratory test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (scientific experiment or analysis)</td><td class="ToWrd">test di laboratorio <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Le case farmaceutiche conducono numerosi test di laboratorio sulle cavie.</td></tr>
+	<tr class="odd" id="enit:1035381"><td class="FrWrd"><strong>line test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova in linea <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:134236"><td class="FrWrd"><strong>listening test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (aural examination)</td><td class="ToWrd">prova di ascolto <em class="POS2"></em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">test di ascolto <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:118060"><td class="FrWrd"><strong>literacy test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (exam in basic reading and writing)</td><td class="ToWrd">esame di lettura e scrittura <em class="POS2"></em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">A student must pass a literacy test in order to be placed into a higher level class.</td></tr>
+	<tr class="even" id="enit:1035520"><td class="FrWrd"><strong>litmus test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova del nove <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:118545"><td class="FrWrd"><strong>means test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (appraisal of <span title="somebody">[sb]</span>'s financial situation)</td><td class="ToWrd">verifica del reddito <em class="POS2">nf</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">After the means test his application for unemployment benefits was denied.</td></tr>
+	<tr class="even" id="enit:134601"><td class="FrWrd"><strong>means-test <span title="somebody">[sb]</span></strong> <em class="POS2">v</em></td><td> <i class="Fr2">UK</i> (determine <span title="somebody">[sb]</span>'s eligibility for benefits)</td><td class="ToWrd">verifica del reddito <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:134648"><td class="FrWrd"><strong>medical test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (diagnostic exam or procedure)</td><td class="ToWrd">esame diagnostico <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:1038055"><td class="FrWrd"><strong>mental test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test psichico <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:119972"><td class="FrWrd"><strong>oral test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (spoken examination)</td><td class="ToWrd">esame orale <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Oral tests are an alternative to written exams in a variety of subjects.</td></tr>
+	<tr class="even" id="enit:119973"><td class="FrWrd"><strong>oral test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (spoken language exam)</td><td class="ToWrd">esame orale <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">The students had to prepare for an oral test to demonstrate their conversational Spanish.</td></tr>
+	<tr class="odd" id="enit:1069201"><td class="FrWrd"><strong>performance test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test di capacità <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:120437"><td class="FrWrd"><strong>personality test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (psychological evaluation)</td><td class="ToWrd">test della personalità <em class="POS2"></em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">A personality test can tell you something about yourself.</td></tr>
+	<tr class="odd" id="enit:120569"><td class="FrWrd"><strong>placement test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (assessment exam)</td><td class="ToWrd">test di inquadramento, test di ingresso <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">We give all incoming freshman a placement test to see what level math they should start at.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">In certe scuole all'estero vengono fatti dei test d'inquadramento per smistare i nuovi allievi ai corsi del livello adatto a loro.</td></tr>
+	<tr class="even" id="enit:120861"><td class="FrWrd"><strong>practical test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (exam that measures skill or competence)</td><td class="ToWrd">prova pratica <em class="POS2">nf</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">She passed her driving theory test but she failed the practical test.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Per il rilascio della patente di guida occorre superare sia la prova scritta che quella pratica.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2">informale</td><td class="ToWrd">pratica <em class="POS2">nf</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">Dopo la teoria gli studenti saranno impegnati con la pratica</td></tr>
+	<tr class="odd" id="enit:136076"><td class="FrWrd"><strong>pregnancy test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (diagnostic kit for determining pregnancy)</td><td class="ToWrd">test di gravidanza <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1115708"><td class="FrWrd"><strong>psychological test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test psicologico <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:1115786"><td class="FrWrd"><strong>put himself to the test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">mettersi alla prova <em class="POS2">vrif</em></td></tr>
+	<tr class="even" id="enit:1059997"><td class="FrWrd"><strong>put oneself to the test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">mettersi alla prova <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:104253"><td class="FrWrd"><strong>put to the test</strong> <em class="tooltip POS2">vtr<span><i>transitive verb</i>: Verb taking a direct object--for example, "<b>Say</b> something." "She <b>found</b> the cat." </span></em></td><td> (try out, make a trial)</td><td class="ToWrd">mettere alla prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1086220"><td class="FrWrd"><strong>qualification test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">abilitazione <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:104406"><td class="FrWrd"><strong>road test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> <i class="Fr2">US</i> (test of vehicle in actual use)</td><td class="ToWrd">prova su strada <em class="POS2">nf</em></td></tr>
+	<tr class="even" id="enit:121866"><td class="FrWrd"><strong>screen test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (film audition)</td><td class="ToWrd">provino cinematografico <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">Actors' screen tests are enjoyable to watch because they show the first reading of a script.</td></tr>
+	<tr class="odd" id="enit:122102"><td class="FrWrd"><strong>severe test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (ordeal, extreme trial)</td><td class="ToWrd">mettere a dura prova <em class="POS2">vtr</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Spending the winter in the mountains was a severe test of their determination.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Passare l'inverno sulle montagne mise a dura prova la loro determinazione.</td></tr>
+	<tr class="even" id="enit:1116937"><td class="FrWrd"><strong>skin test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">esame della pelle <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:1116949"><td class="FrWrd"><strong>slalom test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova dello slalom <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:122471"><td class="FrWrd"><strong>smear test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (pap smear: cervical cancer check)</td><td class="ToWrd">pap test, striscio vaginale <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:1052893"><td class="FrWrd"><strong>spot test</strong> <em class="POS2"></em></td><td>&nbsp;&nbsp;<span class="dsense">(<i>randomizzato</i>)</span></td><td class="ToWrd">controllo <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:138026"><td class="FrWrd"><strong>stand the test of time</strong> <em class="POS2">v</em></td><td> (last, endure)</td><td class="ToWrd">resistere nel tempo <em class="POS2">vi</em></td></tr>
+	<tr class="odd" id="enit:1053292"><td class="FrWrd"><strong>standardized test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova standardizzata <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:138127"><td class="FrWrd"><strong>stiff joint test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (diagnostic test for arthritis)</td><td class="ToWrd">test per la diagnosi dell'artrite reumatoide <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:138220"><td class="FrWrd"><strong>stress test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (check made on strength or stability)</td><td class="ToWrd">prova di carico <em class="POS2"></em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">prova da sforzo <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:128305"><td class="FrWrd"><strong>take a test</strong> <em class="POS2">v</em></td><td> (sit an exam or quiz)&nbsp;&nbsp;<span class="dsense">(<i>(test scolastico)</i>)</span></td><td class="ToWrd">fare un esame, fare un compito <em class="POS2">vtr</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">I have to take a test in biology next week.</td></tr>
+	<tr class="odd" id="enit:1050673"><td class="FrWrd"><strong>test act</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">atto di prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050674"><td class="FrWrd"><strong>test animal</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">cavia <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:123593"><td class="FrWrd"><strong>test ban</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (agreement not to test nuclear weapons)&nbsp;&nbsp;<span class="dsense">(<i>armi nucleari</i>)</span></td><td class="ToWrd">moratoria sui test <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1118335"><td class="FrWrd"><strong>test bed</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">banco di prova <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:123594"><td class="FrWrd"><strong>test case</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (court case that sets a precedent)</td><td class="ToWrd">precedente giudiziario <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Questa sentenza rappresenta un precedente giudiziario inedito.</td></tr>
+	<tr class="even" id="enit:123595"><td class="FrWrd"><strong>test driver</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (<span title="somebody">[sb]</span> who drives vehicles to trial them)&nbsp;&nbsp;<span class="dsense">(<i>di veicoli</i>)</span></td><td class="ToWrd">pilota collaudatore, collaudatore <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:123596"><td class="FrWrd"><strong>test flight</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (aircraft's trial journey)</td><td class="ToWrd">volo di prova <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Something went wrong during the test flight and the plane crashed.</td></tr>
+	<tr class="even" id="enit:1050679"><td class="FrWrd"><strong>test frame</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">telaio di prova <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:1050680"><td class="FrWrd"><strong>test game</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">gioco di prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050681"><td class="FrWrd"><strong>test house</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">laboratorio <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:1050682"><td class="FrWrd"><strong>test kitchen</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">cucina di prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050683"><td class="FrWrd"><strong>test match</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">partita amichevole <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:1050684"><td class="FrWrd"><strong>test object</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">oggetto di prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:105109"><td class="FrWrd"><strong>test out</strong> <em class="tooltip POS2">vtr phrasal sep<span><i>phrasal verb, transitive, separable</i>: Verb with adverb(s) or preposition(s), having special meaning, divisible--for example, "call off" [=cancel], "<b>call</b> the game <b>off</b>," "<b>call off</b> the game."</span></em></td><td> (try, make a trial)</td><td class="ToWrd">provare<a title="conjugate provare" class="conjugate" href="/conj/ItVerbs.aspx?v=provare">⇒</a>, testare<a title="conjugate testare" class="conjugate" href="/conj/ItVerbs.aspx?v=testare">⇒</a> <em class="POS2">vtr</em></td></tr>
+	<tr class="odd" id="enit:123597"><td class="FrWrd"><strong>test paper</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (copy of an exam)</td><td class="ToWrd">testo del compito, testo dell'esame <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">Unscrupulous students get ahold of test papers before the exam and sell them.</td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="ToEx">Alcuni studenti sono entrati in possesso del testo dell'esame in anticipo e ne hanno approfittato.</td></tr>
+	<tr class="even" id="enit:105110"><td class="FrWrd"><strong>test pattern</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (tv: test card)&nbsp;&nbsp;<span class="dsense">(<i>TV</i>)</span></td><td class="ToWrd">monoscopio <em class="POS2">nm</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2">TV</td><td class="ToWrd">test card <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:123598"><td class="FrWrd"><strong>test pilot</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (<span title="somebody">[sb]</span> who flies aircraft to trial them)</td><td class="ToWrd">collaudatore, pilota collaudatore <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:1050689"><td class="FrWrd"><strong>test room</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">camera di collaudo <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:105111"><td class="FrWrd"><strong>test run</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (trial)</td><td class="ToWrd">giro di prova <em class="POS2"></em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">prova di funzionamento <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050691"><td class="FrWrd"><strong>test solution</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">soluzione di prova <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:138627"><td class="FrWrd"><strong>test the waters</strong> <em class="POS2">v</em></td><td> <i class="Fr2">figurative</i> (assess or evaluate <span title="something">[sth]</span>)&nbsp;&nbsp;<span class="dsense">(<i>figurato: esaminare la situazione</i>)</span></td><td class="ToWrd">saggiare il terreno <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050692"><td class="FrWrd"><strong>test tube</strong> <em class="POS2"></em></td><td> (biotech.)</td><td class="ToWrd">provetta <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:1050693"><td class="FrWrd"><strong>test type</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">tipo di prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050694"><td class="FrWrd"><strong>test-ban</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">divieto di prova <em class="POS2"></em></td></tr>
+	<tr class="odd" id="enit:1050695"><td class="FrWrd"><strong>test-bed</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">banco di prova <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1050696"><td class="FrWrd"><strong>test-tube</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">provetta <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:105112"><td class="FrWrd"><strong>test-tube baby</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> <i class="Fr2">informal</i> (<span title="somebody">[sb]</span> born from in-vitro fertilization)</td><td class="ToWrd">bambino in provetta, bambino concepito in provetta <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:138629"><td class="FrWrd"><strong>test-tube rack</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (laboratory: holder for test tubes)&nbsp;&nbsp;<span class="dsense">(<i>laboratorio</i>)</span></td><td class="ToWrd">portaprovette <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:1047945"><td class="FrWrd"><strong>to flunk (a test)</strong> <em class="POS2"></em></td><td> (a test)</td><td class="ToWrd">essere bocciato <em class="POS2">adj</em></td></tr>
+	<tr class="even" id="enit:1047238"><td class="FrWrd"><strong>trade test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">prova professionale, prova attitudinale <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:1046328"><td class="FrWrd"><strong>tuberculin test</strong> <em class="POS2"></em></td><td> (med.)</td><td class="ToWrd">test della tubercolina <em class="POS2"></em></td></tr>
+	<tr class="even" id="enit:1046722"><td class="FrWrd"><strong>two-tailed test</strong> <em class="POS2"></em></td><td></td><td class="ToWrd">test bilaterale <em class="POS2">nm</em></td></tr>
+	<tr class="odd" id="enit:139132"><td class="FrWrd"><strong>unit test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (software check)&nbsp;&nbsp;<span class="dsense">(<i>informatica</i>)</span></td><td class="ToWrd">test d'unità <em class="POS2">nm</em></td></tr>
+	<tr class="even" id="enit:139220"><td class="FrWrd"><strong>vehicle test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (MOT: exam that checks roadworthiness )&nbsp;&nbsp;<span class="dsense">(<i>autoveicoli</i>)</span></td><td class="ToWrd">revisione <em class="POS2">nf</em></td></tr>
+	<tr class="odd" id="enit:124540"><td class="FrWrd"><strong>vocabulary test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (short exam checking word knowledge)</td><td class="ToWrd">test di vocabolario <em class="POS2">nm</em></td></tr>
+	<tr class="odd"><td>&nbsp;</td><td colspan="2" class="FrEx">I did quite well on the vocabulary test.</td></tr>
+	<tr class="even" id="enit:125099"><td class="FrWrd"><strong>written test</strong> <em class="tooltip POS2">n<span><i>noun</i>: Refers to person, place, thing, quality, etc. </span></em></td><td> (exam carried out on paper)</td><td class="ToWrd">prova scritta <em class="POS2">nf</em></td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="FrEx">The exam consists of three written tests and one oral test.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td colspan="2" class="ToEx">L'esame consiste di tre prove scritte e una prova orale.</td></tr>
+	<tr class="even"><td>&nbsp;</td><td class="To2"></td><td class="ToWrd">esame scritto <em class="POS2">nm</em></td></tr>
+
+	</tbody></table>
+	<table class="WRreporterror">
+	<tbody><tr><td><a href="/enit/test?start=100" style="font-weight:bold;">100 successive</a></td>
+	<td style="text-align:right;"><a target="WRsug" title="Is something important missing? Report an error or suggest an improvement." href="/english/suggestions.aspx?w=test&amp;dict=enit">Segnala un errore</a></td></tr></tbody></table>
+
+	</div>
+</div>
+</body>
+</html>

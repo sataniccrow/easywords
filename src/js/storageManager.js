@@ -1,12 +1,13 @@
-function saveChanges(langFrom, langTo) {
-  
-  if(langFrom == "" || langTo == ""){
-    alert('Invalid languages');
-  }else{
-    chrome.storage.sync.set({'langFrom': langFrom,'langTo' : langTo}, function(){
-      alert('Default languages saved');
-    });
-  }
+function setApiKey(val) {
+    var result = false;
+    var API_KEY = "apiKey";
+
+    if(!val){
+        return result;
+    }else{
+        chrome.storage.sync.set({API_KEY: val}, function() {
+            result = true;
+            return result;
+        });
+    }
 }
-
-
